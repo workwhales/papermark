@@ -12,8 +12,8 @@ export default async function DomainMiddleware(req: NextRequest) {
   // if there's a path and it's not "/" then we need to check if it's a custom domain
   if (path !== "/") {
     if (BLOCKED_PATHNAMES.includes(path) || path.includes(".")) {
-      url.pathname = "/404";
-      return NextResponse.rewrite(url, { status: 404 });
+      // url.pathname = "/404";
+      // return NextResponse.rewrite(url, { status: 404 });
     }
     // Subdomain available, rewriting
     // >>> Rewriting: ${path} to /view/domains/${host}${path}`
@@ -21,6 +21,9 @@ export default async function DomainMiddleware(req: NextRequest) {
     return NextResponse.rewrite(url, PAPERMARK_HEADERS);
   } else {
     // redirect plain custom domain to papermark.io, eventually to it's own landing page
-    return NextResponse.redirect(new URL("https://docu.chn.one", req.url));
+    // return NextResponse.redirect(new URL("https://papermark.io", req.url));
   }
+
+  // If the root path and no redirection, just continue with the original request
+  return NextResponse.next();
 }
