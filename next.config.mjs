@@ -25,10 +25,11 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      {
-        source: "/ai-pitch-deck-generator/:path*",
-        destination: "https://deck.papermark.io/:path*",
-      },
+      // Remove or modify this rule if it's causing unwanted redirects
+      // {
+      //   source: "/ai-pitch-deck-generator/:path*",
+      //   destination: "https://deck.papermark.io/:path*",
+      // },
     ];
   },
 };
