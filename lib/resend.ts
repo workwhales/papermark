@@ -1,7 +1,5 @@
 import { JSXElementConstructor, ReactElement } from "react";
-
 import { Resend } from "resend";
-
 import { log, nanoid } from "@/lib/utils";
 
 export const resend = process.env.RESEND_API_KEY
@@ -32,14 +30,14 @@ export const sendEmail = async ({
 
   try {
     const { data, error } = await resend.emails.send({
-      from: no-reply
+      from: marketing
         ? "no-reply from work whales <info@workwhales.com>"
         : system
           ? "no-reply <info@workwhales.com>"
-          :  "no-reply <info@workwhales.com>",
+          : "no-reply <info@workwhales.com>",
       to: test ? "delivered@resend.dev" : to,
       cc: cc,
-      reply_to: no-reply ? " "no-reply <info@workwhales.com>"" : undefined,
+      reply_to: "no-reply <info@workwhales.com>",
       subject,
       react,
       headers: {
