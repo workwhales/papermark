@@ -1,10 +1,10 @@
 export const FREE_PLAN_LIMITS = {
-  users: 1,
-  domains: 0,
-  datarooms: 0,
-  customDomainOnPro: false,
-  customDomainInDataroom: false,
-  advancedLinkControlsOnPro: false,
+  users: 99,
+  domains: 99,
+  datarooms: 99,
+  customDomainOnPro: true,
+  customDomainInDataroom: true,
+  advancedLinkControlsOnPro: true,
 };
 
 export const PRO_PLAN_LIMITS = {
